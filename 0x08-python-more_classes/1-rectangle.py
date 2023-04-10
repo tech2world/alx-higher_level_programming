@@ -4,15 +4,14 @@
 
 class Rectangle:
     """Representation of a rectangle"""
-
-    def __int__(self, width=0, height=0):
-        """Initializing the rectangle class
+    def __init__(self, width=0, height=0):
+        """Initializing the rectangle
         Args:
-            width: represents the width of the rectangle
-            height: represents the height of the rectangle
+            width: width of the rectangle
+            height: height of the rectangle
         Raises:
             TypeError: if size is not an integer
-            ValueError: if size < 0
+            ValueError: if size is less than 0
         """
 
         self.width = width
@@ -20,29 +19,28 @@ class Rectangle:
 
     @property
     def width(self):
-        """Defines the width of the rectangle"""
+        """Gets width's attributes"""
         return self.__width
 
     @width.setter
     def width(self, value):
-        """Sets width's attribute"""
+        """Sets width's attributes"""
         if not isinstance(value, int):
-            raise TypeError("width must be an integer")
+            raise TypeError('width must be an integer')
         if value < 0:
-            raise ValueError("width must be >= 0")
+            raise ValueError('width must be >= 0')
         self.__width = value
 
     @property
     def height(self):
-        """Defines the height of the rectangle"""
+        """Gets height's attributes"""
         return self.__height
 
     @height.setter
     def height(self, value):
-        """Sets height's attribute"""
+        """Sets height's attributes"""
         if not isinstance(value, int):
-            raise TypeError("height must be an integer")
+            raise TypeError('height must be an integer')
         if value < 0:
-            raise ValueError("height must be >= 0")
-        # noinspection PyAttributeOutsideInit
+            raise ValueError('height must be >= 0')
         self.__height = value
