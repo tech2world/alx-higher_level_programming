@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """Module that writes string to a file"""
 
+
 def write_file(filename='', text=''):
     """Writes string to a text file
     Args:
