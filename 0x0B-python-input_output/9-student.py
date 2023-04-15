@@ -9,7 +9,6 @@ class Student:
         first_name: name of student.
         last_name: name of student.
         age: student's age.
-
     """
 
     def __int__(self, first_name, last_name, age):
