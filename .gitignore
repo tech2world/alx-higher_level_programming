@@ -2,3 +2,4 @@
 0x05-python-exceptions/.idea/workspace.xml
 *.xml
 *.iml
+*.pyc
