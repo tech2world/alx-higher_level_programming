@@ -59,6 +59,6 @@ class Square(Rectangle):
                 elif key == 'y':
                     self.y = value
 
-        def to_dictionary(self):
-            """returns dictionary representation of oblect"""
-            return {'id': self.id, 'size': self.size, 'x': self.x, 'y': self.y}
+    def to_dictionary(self):
+        """returns dictionary representation of oblect"""
+        return {'id': self.id, 'size': self.size, 'x': self.x, 'y': self.y}
