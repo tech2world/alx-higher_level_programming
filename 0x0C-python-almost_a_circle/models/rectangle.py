@@ -6,13 +6,13 @@ from models.base import Base
 class Rectangle(Base):
     """Defines a rectangle"""
 
-    def __int__(self, width, height, x=0, y=0, id=None):
+    def __init__(self, width, height, x=0, y=0, id=None):
         """Initializes attributes of the rectangle object"""
         self.width = width
         self.height = height
         self.x = x
         self.y = y
-        super().__int__(id)
+        super().__init__(id)
 
     # Getter functions
     @property
@@ -59,7 +59,7 @@ class Rectangle(Base):
         """gets value for x"""
         if type(value) is not int:
             raise TypeError('x must be an integer')
-        if value <= 0:
+        if value < 0:
             raise ValueError('x must be >= 0')
         self.__x = value
 
@@ -68,7 +68,7 @@ class Rectangle(Base):
         """gets value for y"""
         if type(value) is not int:
             raise TypeError('y must be an integer')
-        if value <= 0:
+        if value < 0:
             raise ValueError('y must be >= 0')
         self.__y = value
 
@@ -93,34 +93,36 @@ class Rectangle(Base):
             {self.__width}/{self.__height}'
 
     def update(self, *args, **kwargs):
-        if args is not None:
-            for i in range(len(args)):
-                if 1 == 0:
-                    self.id = args[i]
+        """Updates the attributes of the Rectangle"""
+        if args:
+            for i, arg in enumerate(args):
+                if i == 0:
+                    self.id = arg
                 elif i == 1:
-                    self.__width = args[i]
+                    self.width = arg
                 elif i == 2:
-                    self.__height = args[i]
+                    self.height = arg
                 elif i == 3:
-                    self.__x = args[i]
+                    self.x = arg
                 elif i == 4:
-                    self.__y = args[i]
-        if kwargs is not None:
+                    self.y = arg
+        else:
             for key, value in kwargs.items():
                 if key == 'id':
                     self.id = value
                 elif key == 'width':
-                    self.__width = value
+                    self.width = value
                 elif key == 'height':
-                    self.__height = value
+                    self.height = value
                 elif key == 'x':
-                    self.__x = value
+                    self.x = value
                 elif key == 'y':
-                    self.__y = value
+                    self.y = value
 
     def to_dictionary(self):
+        """Returns a dictionary representation of the Rectangle"""
         return {'id': self.id,
-                'width': self.__width,
-                'height': self.__height,
-                'x': self.__x,
-                'y': self.__y}
+                'width': self.width,
+                'height': self.height,
+                'x': self.x,
+                'y': self.y}
