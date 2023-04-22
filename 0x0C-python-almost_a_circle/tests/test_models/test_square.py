@@ -273,7 +273,7 @@ class TestSquareMethods(unittest.TestCase):
             self.assertEqual(str_out.getvalue(), res)
 
         s1.update(2, 2, 2, 2)
-        res = "[Square] (2) 2/2 - 2"
+        res = "[Square] (2) 2/2 - 2\n"
         with patch('sys.stdout', new=StringIO()) as str_out:
             print(s1)
             self.assertEqual(str_out.getvalue(), res)
@@ -293,7 +293,7 @@ class TestSquareMethods(unittest.TestCase):
     def test_update_4(self):
         """ Test update method """
         s1 = Square(10)
-        res = "[Square] (1) 0/0 - 10"
+        res = "[Square] (1) 0/0 - 10\n"
 
         with patch('sys.stdout', new=StringIO()) as str_out:
             print(s1)
@@ -301,7 +301,7 @@ class TestSquareMethods(unittest.TestCase):
 
         dic = {'size': 3, 'y': 5}
         s1.update(**dic)
-        res = "[Square] (1) 0/5 - 3"
+        res = "[Square] (1) 0/5 - 3\n"
         with patch('sys.stdout', new=StringIO()) as str_out:
             print(s1)
             self.assertEqual(str_out.getvalue(), res)
@@ -309,7 +309,7 @@ class TestSquareMethods(unittest.TestCase):
     def test_update_5(self):
         """ Test update method """
         s1 = Square(7)
-        res = "[Square] (1) 0/0 - 7"
+        res = "[Square] (1) 0/0 - 7\n"
 
         with patch('sys.stdout', new=StringIO()) as str_out:
             print(s1)
@@ -323,7 +323,7 @@ class TestSquareMethods(unittest.TestCase):
     def test_to_dictionary(self):
         """ Test dictionary returned """
         s1 = Square(1, 2, 3)
-        res = "[Square] (1) 2/3 - 1"
+        res = "[Square] (1) 2/3 - 1\n"
         with patch('sys.stdout', new=StringIO()) as str_out:
             print(s1)
             self.assertEqual(str_out.getvalue(), res)
@@ -344,13 +344,13 @@ class TestSquareMethods(unittest.TestCase):
     def test_to_dictionary_2(self):
         """ Test dictionary returned """
         s1 = Square(2, 2, 2)
-        res = "[Square] (1) 2/2 - 2"
+        res = "[Square] (1) 2/2 - 2\n"
         with patch('sys.stdout', new=StringIO()) as str_out:
             print(s1)
             self.assertEqual(str_out.getvalue(), res)
 
         s2 = Square(5)
-        res = "[Square] (2) 0/0 - 5"
+        res = "[Square] (2) 0/0 - 5\n"
         with patch('sys.stdout', new=StringIO()) as str_out:
             print(s2)
             self.assertEqual(str_out.getvalue(), res)
@@ -448,3 +448,6 @@ class TestSquareMethods(unittest.TestCase):
         for i in range(len(linput)):
             self.assertEqual(linput[i].__str__(), loutput[i].__str__())
 
+
+if __name__ == '__main__':
+    unittest.main()
