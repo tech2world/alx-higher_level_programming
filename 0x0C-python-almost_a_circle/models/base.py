@@ -11,7 +11,7 @@ class Base:
 
     __nb_objects = 0
 
-    def __int__(self, id=None):
+    def __init__(self, id=None):
         if id is not None:
             self.id = id
         else:
@@ -24,7 +24,7 @@ class Base:
         if list_dictionaries is None or list_dictionaries == []:
             return '[]'
         if type(list_dictionaries) != list or not all(type(i) == dict for i in list_dictionaries):
-            raise TypeError('list_dictionaries must be a list dictionaries')
+            raise TypeError('list_dictionaries must be a list of dictionaries')
         return json.dumps(list_dictionaries)
 
     @classmethod
@@ -68,8 +68,8 @@ class Base:
         return list_of_instances
 
     @classmethod
-    def save_to_file(cls, list_objs):
-        """"Serializes list_objs and save to file"""
+    def save_to_file_csv(cls, list_objs):
+        """Serializes list_objs and save to file"""
         file_name = '{}.csv'.format(cls.__name__)
         with open(file_name, mode='w', newline='') as csv_file:
             if list_objs is None or list_objs == []:
@@ -79,7 +79,7 @@ class Base:
                     fieldnames = ['id', 'width', 'height', 'x', 'y']
                 else:
                     fieldnames = ['id', 'size', 'x', 'y']
-                    writer = csv.DictWriter(csv_file, fieldnames=fieldnames)
+                writer = csv.DictWriter(csv_file, fieldnames=fieldnames)
                 for obj in list_objs:
                     writer.writerow(obj.to_dictionary())
 
@@ -104,7 +104,7 @@ class Base:
         """Draw Rectangles and Squares using turtle module.
         Args:
             list_rectangles: a list of Rectangle objects to draw
-            list_squares: a list od square objects to draw.
+            list_squares: a list of Square objects to draw.
         """
         turt = turtle.Turtle()
         turt.screen.bgcolor('#b7312c')
@@ -130,10 +130,8 @@ class Base:
             turt.up()
             turt.goto(sqr.x, sqr.y)
             turt.down()
-            for i in range(2):
-                turt.forward(sqr.width)
-                turt.left(90)
-                turt.forward(sqr.height)
+            for i in range(4):
+                turt.forward(sqr.size)
                 turt.left(90)
             turt.hideturtle()
 
