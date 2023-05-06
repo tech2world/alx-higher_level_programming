@@ -8,5 +8,6 @@ if __name__ == "__main__":
     add = 0
     for s in range(len(count) - 1):
         add += int(count[s + 1])
+    # print(f'len of argv: {len(count)}')
     print("{:d}".format(add))
     # print(f'show the input: {count}')
