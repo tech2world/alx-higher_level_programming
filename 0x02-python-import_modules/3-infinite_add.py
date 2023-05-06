@@ -7,6 +7,6 @@ if __name__ == "__main__":
     count = sys.argv
     add = 0
     for s in range(len(count) - 1):
-        add += int(s)
+        add += int(count[s + 1])
     print("{:d}".format(add))
-    # print(count)
+    # print(f'show the input: {count}')
