@@ -7,4 +7,3 @@ if (parsedInt) {
 } else {
   console.log('Not a number');
 }
-
