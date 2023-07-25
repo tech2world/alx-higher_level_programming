@@ -10,7 +10,7 @@ fs.readFile(filePath, 'utf-8', (err, data) => {
     // handle error if it occurs during file opening
     console.error('Error occurred while reading the file:', err);
   } else {
-    //console.log('File content:');
+    // console.log('File content:');
     console.log(data);
   }
 });
