@@ -10,6 +10,6 @@ request.get(apiEndpoint, (err, response, body) => {
     console.error('Error:', response.statusCode);
   } else {
     const movieData = JSON.parse(body);
-    console.log('Title:', movieData.title);
+    console.log(movieData.title);
   }
 });
