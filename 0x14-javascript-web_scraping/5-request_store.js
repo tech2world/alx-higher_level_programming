@@ -4,7 +4,7 @@ const fs = require('fs');
 const urlToRequest = process.argv[2];
 const filePath = process.argv[3];
 
-request.get({url: urlToRequest, encoding:'utf-8'}, (error, _response, body) => {
+request.get({ url: urlToRequest, encoding: 'utf-8' }, (error, _response, body) => {
   if (error) {
     console.error(error);
   } else {
@@ -12,7 +12,6 @@ request.get({url: urlToRequest, encoding:'utf-8'}, (error, _response, body) => {
       if (err) {
         console.error(err);
       }
-
     });
   }
 });
