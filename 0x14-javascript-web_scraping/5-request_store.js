@@ -12,7 +12,7 @@ request.get({url: urlToRequest, encoding:'utf-8'}, (error, _response, body) => {
       if (err) {
         console.error(err);
       }
-      
+
     });
   }
 });
